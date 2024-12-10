@@ -1,30 +1,15 @@
-enum Bit {
-  Zero = 0,
-  One = 1
-}
-
-
-function And(input1: Bit, input2: Bit) {
-  return input1 === Bit.One && input2 === Bit.One ? Bit.One : Bit.Zero;
-}
-
-function Or(input1: Bit, input2: Bit) {
-  return input1 === Bit.One || input2 === Bit.One ? Bit.One : Bit.Zero;
-}
-
-function Inv(input: Bit) {
-  return input === Bit.One ? Bit.Zero : Bit.One;
-}
+import { Bit } from "./bit";
+import { And, Inv, Or } from "./logic-gates";
 
 const table = [
-  { sel: 0, a: 0, b: 0, out: 0 },
-  { sel: 0, a: 0, b: 1, out: 0 },
-  { sel: 0, a: 1, b: 0, out: 1 },
-  { sel: 0, a: 1, b: 1, out: 1 },
-  { sel: 1, a: 0, b: 0, out: 0 },
-  { sel: 1, a: 0, b: 1, out: 1 },
-  { sel: 1, a: 1, b: 0, out: 0 },
-  { sel: 1, a: 1, b: 1, out: 1 },
+  { sel: Bit.Zero, a: Bit.Zero, b: Bit.Zero, out: Bit.Zero },
+  { sel: Bit.Zero, a: Bit.Zero, b: Bit.One, out: Bit.Zero },
+  { sel: Bit.Zero, a: Bit.One, b: Bit.Zero, out: Bit.One },
+  { sel: Bit.Zero, a: Bit.One, b: Bit.One, out: Bit.One },
+  { sel: Bit.One, a: Bit.Zero, b: Bit.Zero, out: Bit.Zero },
+  { sel: Bit.One, a: Bit.Zero, b: Bit.One, out: Bit.One },
+  { sel: Bit.One, a: Bit.One, b: Bit.Zero, out: Bit.Zero },
+  { sel: Bit.One, a: Bit.One, b: Bit.One, out: Bit.One },
 ];
 
 for (const { sel, a, b, out } of table) {
